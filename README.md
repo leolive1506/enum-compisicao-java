@@ -26,3 +26,15 @@ OrderStatus os2 = OrderStatus.valueOf("DELIVERED");
   - coesão
   - flexibilidade
   - reuso
+
+# String builder
+```java
+public String toString() {
+  StringBuilder string = new StringBuilder();
+  string.append(title + "\n");
+  string.append(likes);
+  string.append(" Likes - ");
+
+  return string.toString();
+}
+```

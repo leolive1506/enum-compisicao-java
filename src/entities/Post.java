@@ -1,6 +1,9 @@
 package entities;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,5 +66,26 @@ public class Post {
 
   public void removeComent(Comment comment) {
     this.comments.remove(comment);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder string = new StringBuilder();
+    string.append(title + "\n");
+    string.append(likes);
+    string.append(" Likes - ");
+
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    LocalDateTime localDateTime = LocalDateTime.ofInstant(moment, ZoneId.systemDefault());
+
+    string.append(localDateTime.format(formatter) + "\n");
+    string.append(content + "\n");
+    string.append("Comments:\n");
+
+    for (Comment comment: comments) {
+      string.append(comment.getText() + "\n");
+    }
+
+    return string.toString();
   }
 }

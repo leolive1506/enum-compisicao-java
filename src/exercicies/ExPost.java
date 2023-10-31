@@ -48,18 +48,7 @@ public class ExPost {
     posts.add(post2);
 
     for (Post item: posts) {
-      System.out.println(item.getTitle());
-
-      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-      LocalDateTime localDateTime = LocalDateTime.ofInstant(item.getMoment(), ZoneId.systemDefault());
-
-      System.out.println(item.getLikes() + " Likes - " + localDateTime.format(formatter));
-      System.out.println(item.getContent());
-      System.out.println("Comments");
-      for (Comment comment: item.getComments()) {
-        System.out.println(comment.getText());
-      }
-
+      System.out.println(item);
       System.out.println();
     }
   }
